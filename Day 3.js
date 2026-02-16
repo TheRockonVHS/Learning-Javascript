@@ -1,18 +1,18 @@
 // ```javascript // code here ```
 
-// // Day 2 DOM Basics
+// Day 2 DOM Basics
 // const myButton = document.querySelector('.myBtn');
 
 // myButton.addEventListener('click', () => {
 //   console.log('Clicked!');
 // })
 
-// // Day 2 DOM Basics v2
+// Day 2 DOM Basics v2
 // const myPara = document.querySelector('.output');
 
 // myPara.textContent('Goodbye');
 
-// // Day 1 Functions
+// Day 1 Functions
 // function calculateTotal(price, taxRate) {
 //   return price + (price * taxRate);
 // }
@@ -20,7 +20,7 @@
 // // a parameter is inside the () from the function and arguments are values passed into the function when you call the function
 
 
-// // Mini-App 1: Button Counter
+// Mini-App 1: Button Counter
 // const countDisplay = document.querySelector('#count');
 // const button = document.querySelector('#counterBtn');
 // let count = 0;
@@ -31,9 +31,29 @@
 // })
 
 // Mini-App 2: Live Text Display
-const textInput = document.querySelector("#textInput");
-const paragraph = document.querySelector("#display");
+// const textInput = document.querySelector("#textInput");
+// const paragraph = document.querySelector("#display");
 
-textInput.addEventListener("input", () => {
-  paragraph.textContent = "You typed: " + textInput.value;
+// textInput.addEventListener("input", () => {
+//   paragraph.textContent = "You typed: " + textInput.value;
+// })
+
+// Mini-App 3: Toggle Visibility
+const theButton = document.querySelector('#toggleBtn');
+const box = document.querySelector('#box');
+
+theButton.addEventListener('click', () => {
+  if (box.style.display === 'none') {
+    box.style.display = 'block';
+  } else {
+    box.style.display = 'none';
+  }  
 })
+
+
+function math (n) {
+  return n*n;
+}
+
+const result = math(3);
+console.log(result);
