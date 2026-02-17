@@ -35,7 +35,6 @@ console.log(fruits);
 //   list.appendChild(li);  // or list.append(li)
 // });
 
-``` javascript
 const list = document.querySelector('#fruitList');
 
 for (let index = 0; index < fruits.length; index++) {
@@ -44,4 +43,3 @@ for (let index = 0; index < fruits.length; index++) {
   li.textContent = output;
   list.append(li);  
 }
-```
