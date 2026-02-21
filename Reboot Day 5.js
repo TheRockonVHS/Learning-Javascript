@@ -7,9 +7,9 @@ const product = {
 };
 
 function applyDiscount(product, percent) {
-  let discount = percent * 100;
+  let discount = percent / 100;
   const newProduct = (product.price * discount);
-  return product;
+  return { name: product.name, price: discountedPrice };
 }
 
 // DOM Micro-Drill
@@ -23,9 +23,32 @@ button.addEventListener('click', () => {
 // **Concept Check:** In 1 sentence, what is the difference between passing a string to a function vs. passing an object?
 // A string is one value while a object can have multiple values and different types included in it.
 
+let num = 5;
+let obj = { count: 5 };
+
+function change(a, b) {
+  a = 10;
+  b.count = 10;
+}
+
+change(num, obj);
+// What is num now? What is obj.count now?
+// num is 5 and obj.count is 10
+
 // Create an array of 3 user objects
-const user = {};
-const array = [user{}, user{}, user{} ];
+const user = {
+  name: "",
+};
+const bob = {
+  name: "bob"
+};
+const frank = {
+  name: "frank"
+};
+const charles = {
+  name: "charles"
+};
+const array = [bob, frank, charles ];
 
 // Explain the difference between Reference and Value types
 // Value is data from a variable that is a string or integer. Reference is a pointer to another Array or Object that pass that same data to the other one
@@ -35,15 +58,30 @@ let name = user.name;
 
 // Use .map() to extract names from objects
 const obj = {
-  names = ""
+  name: "",
+  age: 0
 };
 
-let names = obj.map(names);
+const myArray = [obj]
+// .map() - transforms each element
+let names = myArray.map(item => item.name);
 
 // Use .find() to get object by property
 const newObj = {
-  name = "",
-  age = 0
+  name: "Alice",
+  age: 0
 };
 
-let newNames = newObj.find(name);
+const newArray = [newObj];
+
+function findName(array, nameToFind) {
+  return array.find(item => item.name === nameToFind);
+}
+
+const result = findName(newArray, "Alice"); 
+
+// Prompt 1: Save Array to localStorage
+// Create your array of objects here
+
+// Save to localStorage here
+
