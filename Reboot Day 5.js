@@ -84,3 +84,11 @@
 const myArray = [{name: "Frank"}, {name: "John"}, {name: "Jerry"}];
 // Save to localStorage here
 localStorage.setItem("users", JSON.stringify(myArray));
+
+// 1. Load from localStorage here
+const data = localStorage.getItem("users");
+// 2. Convert back to array here
+const parsedData = JSON.parse(data);
+// 3. Render/display the data here
+console.log(parsedData);
+
