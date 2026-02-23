@@ -11,13 +11,17 @@
 // Give it your best shot from memory — even partial recall helps strengthen the learning. I'll guide you from there.
 
 // ``` javascript
-const content = document.querySelector('#content')
-content.addEventListener('click', () => {
-  // change content to hidden via CSS
-})
+const content = document.querySelector('#content');
+const btn = document.querySelector('#toggle-btn');
 
-const btn = document.querySelector('#toggle-btn')
 // how do you change what text the button displays?
 btn.addEventListener('click', () => {
-  btn.textContent = "Show";
+  if (btn.textContent === 'Hide') {
+    content.hidden = false;
+    btn.textContent = "Show";
+  } else {
+    content.hidden = true;
+    btn.textContent = "Hide";
+  }
+  
 })
