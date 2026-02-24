@@ -16,12 +16,11 @@ content.hidden = false;
 
 // how do you change what text the button displays?
 btn.addEventListener('click', () => {
-  if (content.hidden === true) {
+  if (content.hidden) {
     content.hidden = false;
     btn.textContent = "Hide";
   } else {
     content.hidden = true;
     btn.textContent = "Show";
   }
-  
 })
