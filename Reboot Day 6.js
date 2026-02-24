@@ -10,18 +10,18 @@
 // on click
 // Give it your best shot from memory — even partial recall helps strengthen the learning. I'll guide you from there.
 
-// ``` javascript
 const content = document.querySelector('#content');
 const btn = document.querySelector('#toggle-btn');
+content.hidden = false;
 
 // how do you change what text the button displays?
 btn.addEventListener('click', () => {
-  if (btn.textContent === 'Hide') {
+  if (content.hidden === true) {
     content.hidden = false;
-    btn.textContent = "Show";
+    btn.textContent = "Hide";
   } else {
     content.hidden = true;
-    btn.textContent = "Hide";
+    btn.textContent = "Show";
   }
   
 })
