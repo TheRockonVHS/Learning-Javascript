@@ -21,13 +21,12 @@ button.addEventListener('click', () => {
   const num2Input = num2.value;
   const number1 = Number(num1Input);
   const number2 = Number(num2Input);
-  const testNum1 = isNaN(number1);
-  const testNum2 = isNaN(number2);
-  if (testNum1 === false & testNum2 === false) {
+
+  if (num1Input === "" || num2Input === "") {
+    para.textContent = 'Please enter valid numbers';
+  } else if (!isNaN(number1) && !isNaN(number2)) {
     const result = number1 + number2;
     para.textContent = result;
-  } else if (num1Input === "" || num2Input === "") {
-    para.textContent = 'Please enter valid numbers';
   } else {
     para.textContent = 'Please enter valid numbers';
   }
