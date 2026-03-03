@@ -19,3 +19,4 @@ button.addEventListener('click', () => {
 })
 */
 
+const items = ['Apples', 'Milk', 'Bread'];
