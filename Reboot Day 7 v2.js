@@ -6,11 +6,16 @@
 
 // That's it. Just write it from memory and paste what you get here — right or wrong.
 
+/*
 const button = document.querySelector('#toggleBtn');
 const para = document.querySelector('#message');
 
 button.addEventListener('click', () => {
-  if (!para(hidden)) {
-    para = para(hidden);
+  if (para.hidden === false) {
+    para.hidden = true;
+  } else {
+    para.hidden = false;
   }
 })
+*/
+
