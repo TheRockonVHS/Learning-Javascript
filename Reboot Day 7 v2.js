@@ -6,7 +6,7 @@
 
 // That's it. Just write it from memory and paste what you get here — right or wrong.
 
-/*
+/*https://t3.chat/chat/8646bc61-7c6b-48d2-8171-62670a3508d6
 const button = document.querySelector('#toggleBtn');
 const para = document.querySelector('#message');
 
@@ -19,4 +19,11 @@ button.addEventListener('click', () => {
 })
 */
 
+const list = document.querySelector('#shopping-list');
 const items = ['Apples', 'Milk', 'Bread'];
+
+items.forEach((item) => {
+  const newItem = document.createElement('li');
+  newItem.textContent = item;
+  list.appendChild(newItem);
+})
