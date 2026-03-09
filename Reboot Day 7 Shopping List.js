@@ -20,3 +20,15 @@ button.addEventListener('click', () => {
 // Build a button that toggles a `<div>` between open and closed states. The button text should change accordingly ("Hide" when open, "Show" when closed). **Use the `hidden` property to control visibility—not CSS classes.**
 
 // Your task: Write the JavaScript from scratch. Remember: check the **actual state** of the div (the `hidden` property), not the button text.
+const button = document.querySelector('#toggle-btn');
+const content = document.querySelector('#content');
+
+button.addEventListener('click', () => {
+  if (content.hidden === true) {
+    button.textContent = 'Hide';
+    content.hidden = false;
+  } else if (content.hidden === false) {
+    button.textContent = 'Show';
+    content.hidden = true;
+  }
+})
