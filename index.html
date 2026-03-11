@@ -4,16 +4,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Day 7 Session</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Session 8</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 500px;
+      margin: 50px auto;
+    }
+
+    input {
+      padding: 8px;
+      width: 70%;
+    }
+
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      background: #f0f0f0;
+      margin: 5px 0;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 
 <body>
-  <button id="toggle-btn">Show</button>
-  <div id="content" hidden>This is hidden content.</div>
+  <h1>My Todos</h1>
+  <input type="text" id="todoInput" placeholder="Enter a todo...">
+  <button id="addBtn">Add Todo</button>
+  <ul id="todosList"></ul>
 
-  <script src="Reboot Day 7 Shopping List.js"></script>
+  <script src="Session 8.js"></script>
 </body>
 
 </html>

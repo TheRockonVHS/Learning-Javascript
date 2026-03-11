@@ -12,7 +12,8 @@ button.addEventListener('click', () => {
   newItem.textContent = input;
   list.appendChild(newItem);
   itemInput = "";
-})*/
+})
+*/
 
 
 
