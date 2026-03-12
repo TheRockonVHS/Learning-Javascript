@@ -1,6 +1,8 @@
 // ``` javascript
 const list = document.querySelector('#todosList');
-const array = [];
+const input = document.querySelector('#todoInput');
+const btn = document.querySelector('#addBtn');
+let array = [];
 
 // 1. On page load, get todos from storage and render them
 function loadTodos() {
@@ -24,11 +26,12 @@ function addTodo(text) {
     text: text,
   }
   // TODO: push it into the array
-  newObj.push(array);
+  array.push(newObj);
   // TODO: save array to localStorage
-  localStorage.setItem('todo', array);
+  const stringArray = JSON.stringify(array);
+  localStorage.setItem('todos', stringArray);
   // TODO: render the new todo to the DOM
-  renderTodo(array);
+  renderTodo(newObj);
 }
 
 // 3. Render a single todo to the DOM
@@ -43,3 +46,8 @@ function renderTodo(todo) {
 
 // Call loadTodos when page loads
 loadTodos();
+
+btn.addEventListener('click', () => {
+  addTodo(input.value);
+  input.value = '';
+})
