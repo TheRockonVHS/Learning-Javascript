@@ -1,28 +1,34 @@
+// ``` javascript
 const input = document.querySelector('#todoInput');
 const btn = document.querySelector('#addBtn');
 const list = document.querySelector('#todosList');
+const todos = [];
 
-// get text input from input field
-// save it to an object
-// stringify the object
-// save it to localstorage
-// save it to the DOM
-
-function reloadStorage(text) {
+function loadTodos() {
   // code here
 }
 
-function renderTodo(text) {
+function addTodos(text) {
   if (!text) {
-    return;
+    console.log('no text');
+  } else {
+    const newTodo = { todo: text };
+    todos.push(newTodo);
+    const todosString = JSON.stringify(todos);
+    localStorage.setItem('todos', todosString);
+    renderTodo(newTodo);
   }
+}
 
-  const newObj = { text };
-  newObj.text = text.value;
-  console.log(newObj.text);
+function renderTodo(newTodo) {
+  const newList = document.createElement('li');
+  newList.textContent = newTodo.todo;
+  list.appendChild(newList);
 }
 
 btn.addEventListener('click', () => {
-  renderTodo(input);
+  addTodos(input.value);
   input.value = '';
 });
+
+loadTodos();
