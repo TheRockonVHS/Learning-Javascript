@@ -2,15 +2,21 @@
 const input = document.querySelector('#todoInput');
 const btn = document.querySelector('#addBtn');
 const list = document.querySelector('#todosList');
-const todos = [];
+let todos = [];
 
 function loadTodos() {
-  // code here
+  const data = localStorage.getItem('todos');
+  if (!data) {
+  } else {
+    todos = JSON.parse(data);
+    todos.forEach((e) => {
+      renderTodo(e);
+    });
+  }
 }
 
 function addTodos(text) {
   if (!text) {
-    console.log('no text');
   } else {
     const newTodo = { todo: text };
     todos.push(newTodo);
