@@ -28,8 +28,12 @@ function addTodos(text) {
 
 function renderTodo(newTodo) {
   const newList = document.createElement('li');
+  const newBtn = document.createElement('button');
+  newBtn.textContent = 'Delete';
+  newBtn.id = newTodo.todo;
   newList.textContent = newTodo.todo;
   list.appendChild(newList);
+  list.appendChild(newBtn);
 }
 
 btn.addEventListener('click', () => {
