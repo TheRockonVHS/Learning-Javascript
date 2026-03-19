@@ -31,9 +31,22 @@ function renderTodo(newTodo) {
   const newBtn = document.createElement('button');
   newBtn.textContent = 'Delete';
   newBtn.id = newTodo.todo;
+  newBtn.addEventListener('click', () => {
+    todos = todos.filter((item) => item.todo !== newBtn.id);
+    const todosString = JSON.stringify(todos);
+    localStorage.setItem('todos', todosString);
+    redoTodos();
+  });
   newList.textContent = newTodo.todo;
   list.appendChild(newList);
-  list.appendChild(newBtn);
+  newList.appendChild(newBtn);
+}
+
+function redoTodos() {
+  list.innerHTML = '';
+  todos.forEach((e) => {
+    renderTodo(e);
+  });
 }
 
 btn.addEventListener('click', () => {
