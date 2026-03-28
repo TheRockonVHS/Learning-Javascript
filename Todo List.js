@@ -54,4 +54,30 @@ btn.addEventListener('click', () => {
   input.value = '';
 });
 
+function editTodo(idToEdit, newText) {
+  // Step 1: Get the ID from the button click
+  // (already done—it's the parameter)
+  // Step 2: Get new text from prompt
+  // (already done—it's the parameter)
+  // Step 3: Use map() to update the item
+  // todos = todos.map((item) => {
+  //   if (item.todo === idToEdit) {
+  //     return { todo: newText };
+  //   } else {
+  //     return item;
+  //   }
+  // });
+  // Step 4: Reassign todos
+  // (done in step 3)
+  // Step 5: Save to localStorage
+  // const todosString = JSON.stringify(todos);
+  // localStorage.setItem('todos', todosString);
+  // Step 6: Clear DOM
+  // list.innerHTML = '';
+  // Step 7: Re-render
+  // todos.forEach((e) => {
+  //   renderTodo(e);
+  // });
+}
+
 loadTodos();
