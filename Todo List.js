@@ -28,18 +28,26 @@ function addTodos(text) {
 
 function renderTodo(newTodo) {
   const newList = document.createElement('li');
-  const newBtn = document.createElement('button');
-  newBtn.textContent = 'Delete';
-  newBtn.id = newTodo.todo;
-  newBtn.addEventListener('click', () => {
-    todos = todos.filter((item) => item.todo !== newBtn.id);
+  const deleteBtn = document.createElement('button');
+  const editBtn = document.createElement('button');
+  deleteBtn.textContent = 'Delete';
+  editBtn.textContent = 'Edit';
+  deleteBtn.id = newTodo.todo;
+  editBtn.id = newTodo.todo;
+  deleteBtn.addEventListener('click', () => {
+    todos = todos.filter((item) => item.todo !== deleteBtn.id);
     const todosString = JSON.stringify(todos);
     localStorage.setItem('todos', todosString);
     redoTodos();
   });
+
+  editBtn.addEventListener('click', () => {
+    editTodo(editBtn.id, input);
+  });
   newList.textContent = newTodo.todo;
   list.appendChild(newList);
-  newList.appendChild(newBtn);
+  newList.appendChild(deleteBtn);
+  newList.appendChild(editBtn);
 }
 
 function redoTodos() {
@@ -67,6 +75,7 @@ function editTodo(idToEdit, newText) {
   //     return item;
   //   }
   // });
+  console.log('test');
   // Step 4: Reassign todos
   // (done in step 3)
   // Step 5: Save to localStorage
