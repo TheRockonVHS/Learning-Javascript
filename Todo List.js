@@ -18,6 +18,7 @@ function loadTodos() {
 function addTodos(text) {
   if (!text) {
   } else {
+    const newId = createId();
     const newTodo = { todo: text };
     todos.push(newTodo);
     const todosString = JSON.stringify(todos);
@@ -76,10 +77,9 @@ function editTodo(idToEdit, newText) {
   const todosString = JSON.stringify(todos);
   localStorage.setItem('todos', todosString);
 
-  list.innerHTML = '';
-  todos.forEach((e) => {
-    renderTodo(e);
-  });
+  redoTodos();
 }
+
+function name(params) {}
 
 loadTodos();
