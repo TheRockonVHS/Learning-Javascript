@@ -18,8 +18,7 @@ function loadTodos() {
 function addTodos(text) {
   if (!text) {
   } else {
-    const newId = createId();
-    const newTodo = { todo: text };
+    const newTodo = { todo: text, id: createId(1, 10000) };
     todos.push(newTodo);
     const todosString = JSON.stringify(todos);
     localStorage.setItem('todos', todosString);
@@ -33,10 +32,10 @@ function renderTodo(newTodo) {
   const editBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
   editBtn.textContent = 'Edit';
-  deleteBtn.id = newTodo.todo;
-  editBtn.id = newTodo.todo;
+  deleteBtn.id = newTodo.id;
+  editBtn.id = newTodo.id;
   deleteBtn.addEventListener('click', () => {
-    todos = todos.filter((item) => item.todo !== deleteBtn.id);
+    todos = todos.filter((item) => item.id !== deleteBtn.id);
     const todosString = JSON.stringify(todos);
     localStorage.setItem('todos', todosString);
     redoTodos();
@@ -68,8 +67,8 @@ btn.addEventListener('click', () => {
 
 function editTodo(idToEdit, newText) {
   todos = todos.map((item) => {
-    if (item.todo === idToEdit) {
-      return { todo: newText };
+    if (item.id === idToEdit) {
+      return { todos };
     }
     return item;
   });
@@ -80,6 +79,9 @@ function editTodo(idToEdit, newText) {
   redoTodos();
 }
 
-function name(params) {}
+function createId(min, max) {
+  const newId = Math.floor(Math.random() * (max - min + 1) + min);
+  return newId;
+}
 
 loadTodos();
