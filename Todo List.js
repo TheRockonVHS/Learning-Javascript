@@ -33,7 +33,9 @@ function renderTodo(newTodo) {
   deleteBtn.textContent = 'Delete';
   editBtn.textContent = 'Edit';
   deleteBtn.id = newTodo.id;
-  editBtn.id = newTodo.id;
+  deleteBtn.id = Number(deleteBtn.id);
+  editBtn.id = Number(newTodo.id);
+  editBtn.id = Number(editBtn.id);
   deleteBtn.addEventListener('click', () => {
     todos = todos.filter((item) => item.id !== deleteBtn.id);
     const todosString = JSON.stringify(todos);
@@ -68,7 +70,8 @@ btn.addEventListener('click', () => {
 function editTodo(idToEdit, newText) {
   todos = todos.map((item) => {
     if (item.id === idToEdit) {
-      return { todos };
+      item.todo = newText;
+      return item;
     }
     return item;
   });
