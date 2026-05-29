@@ -1,4 +1,3 @@
-// ``` javascript
 const input = document.querySelector('#todoInput');
 const btn = document.querySelector('#addBtn');
 const list = document.querySelector('#todosList');
@@ -34,7 +33,7 @@ function renderTodo(newTodo) {
   editBtn.textContent = 'Edit';
   deleteBtn.id = newTodo.id;
   deleteBtn.id = Number(deleteBtn.id);
-  editBtn.id = Number(newTodo.id);
+  editBtn.id = newTodo.id;
   editBtn.id = Number(editBtn.id);
   deleteBtn.addEventListener('click', () => {
     todos = todos.filter((item) => item.id !== deleteBtn.id);
@@ -46,6 +45,7 @@ function renderTodo(newTodo) {
   editBtn.addEventListener('click', () => {
     const newText = prompt('Edit todo:');
     if (newText) {
+      console.log('EDIT');
       editTodo(editBtn.id, newText);
     }
   });
