@@ -14,13 +14,16 @@ function loadTodos() {
   }
 }
 
+function saveTodos() {
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
 function addTodos(text) {
   if (!text) {
   } else {
     const newTodo = { todo: text, id: createId(1, 10000) };
     todos.push(newTodo);
-    const todosString = JSON.stringify(todos);
-    localStorage.setItem('todos', todosString);
+    saveTodos();
     renderTodo(newTodo);
   }
 }
@@ -29,26 +32,28 @@ function renderTodo(newTodo) {
   const newList = document.createElement('li');
   const deleteBtn = document.createElement('button');
   const editBtn = document.createElement('button');
+
   deleteBtn.textContent = 'Delete';
   editBtn.textContent = 'Edit';
-  deleteBtn.id = newTodo.id;
-  deleteBtn.id = Number(deleteBtn.id);
-  editBtn.id = newTodo.id;
-  editBtn.id = Number(editBtn.id);
+
+  deleteBtn.dataset.id = newTodo.id;
+  editBtn.dataset.id = newTodo.id;
+
   deleteBtn.addEventListener('click', () => {
-    todos = todos.filter((item) => item.id !== deleteBtn.id);
-    const todosString = JSON.stringify(todos);
-    localStorage.setItem('todos', todosString);
+    const id = Number(deleteBtn.dataset.id);
+    todos = todos.filter((item) => item.id !== id);
+    saveTodos();
     redoTodos();
   });
 
   editBtn.addEventListener('click', () => {
     const newText = prompt('Edit todo:');
     if (newText) {
-      console.log('EDIT');
-      editTodo(editBtn.id, newText);
+      const id = Number(editBtn.dataset.id);
+      editTodo(id, newText);
     }
   });
+
   newList.textContent = newTodo.todo;
   list.appendChild(newList);
   newList.appendChild(deleteBtn);
@@ -62,11 +67,6 @@ function redoTodos() {
   });
 }
 
-btn.addEventListener('click', () => {
-  addTodos(input.value);
-  input.value = '';
-});
-
 function editTodo(idToEdit, newText) {
   todos = todos.map((item) => {
     if (item.id === idToEdit) {
@@ -76,11 +76,14 @@ function editTodo(idToEdit, newText) {
     return item;
   });
 
-  const todosString = JSON.stringify(todos);
-  localStorage.setItem('todos', todosString);
-
+  saveTodos();
   redoTodos();
 }
+
+btn.addEventListener('click', () => {
+  addTodos(input.value);
+  input.value = '';
+});
 
 function createId(min, max) {
   const newId = Math.floor(Math.random() * (max - min + 1) + min);
